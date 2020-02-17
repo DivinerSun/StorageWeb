@@ -5,7 +5,7 @@ import { Layout, Breadcrumb } from 'antd';
 const { Content } = Layout;
 
 
-const MainContent = () => {
+const MainContent = (props) => {
 
     return (
         <Content style={{ margin: '0 16px' }}>
@@ -14,7 +14,7 @@ const MainContent = () => {
                 <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ padding: 24, background: '#fff', minHeight: '100%' }}>
-                我是内容区域
+                { props.children }
             </div>
         </Content>
     );

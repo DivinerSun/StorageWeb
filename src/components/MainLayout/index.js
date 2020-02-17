@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import _ from 'lodash';
 import { Layout, Menu, Icon } from 'antd';
 import ContentHeader from './ContentHeader';
@@ -26,7 +27,7 @@ class MainLayout extends React.Component {
                 return (
                     <Menu.Item key={_.get(item, 'key')}>
                         {_.get(item, 'icon') ? <Icon type={_.get(item, 'icon')} /> : null}
-                        <span>{_.get(item, 'title')}</span>
+                        <NavLink to={_.get(item, 'key')}>{_.get(item, 'title')}</NavLink>
                     </Menu.Item>
                 );
             } else {
@@ -51,17 +52,17 @@ class MainLayout extends React.Component {
         return (
             <Layout style={{ minHeight: '100vh' }}>
                 <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                    <div className={'logo'}>
+                    <a href={'/admin'} className={'logo'}>
                         <img src={Logo} alt={'图标'} />
                         <span className={'title'}>仓储管理系统</span>
-                    </div>
+                    </a>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
                         { this.renderMenu(menuItems) }
                     </Menu>
                 </Sider>
                 <Layout>
                     <ContentHeader />
-                    <MainContent />
+                    <MainContent> { this.props.children } </MainContent>
                     <Footer style={{ textAlign: 'center' }}>Storage Platform Web ©2020 Created by Diviner</Footer>
                 </Layout>
             </Layout>

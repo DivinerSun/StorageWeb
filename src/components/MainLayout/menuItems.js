@@ -50,6 +50,7 @@ export const menuItems = [
         url: '',
         permission: '#',
         icon: 'desktop',
+        children: [],
     },
     {
         key: 'test2',
@@ -72,6 +73,7 @@ export const menuItems = [
         url: '',
         permission: '#',
         icon: 'team',
+        children: []
     },
     {
         key: 'test4',
@@ -93,7 +95,7 @@ export const menuItems = [
         title: '测试菜单5',
         url: '',
         permission: '#',
-        icon: 'add',
+        icon: 'user',
         children: [
             {
                 key: 'steps',

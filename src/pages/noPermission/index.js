@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import { Result, Button } from 'antd'
 
-class NoMatch extends Component {
+class NoPermission extends Component {
     render() {
         return (
             <Result
-                status="404"
-                title="404"
-                subTitle={'抱歉，你访问的页面不存在。'}
+                status="403"
+                title="403"
+                subTitle={'抱歉，你没有当前页面的访问权限。'}
                 extra={
                     <Link to="/admin">
                         <Button type="primary">返回主界面</Button>
@@ -19,4 +19,4 @@ class NoMatch extends Component {
     }
 }
 
-export default NoMatch;
+export default NoPermission;

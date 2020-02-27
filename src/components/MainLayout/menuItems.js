@@ -7,6 +7,12 @@ export const menuItems = [
         icon: 'pie-chart',
         children: [
             {
+                key: 'cards',
+                title: '卡片(Card)',
+                url: '/cards',
+                permission: '#',
+            },
+            {
                 key: 'buttons',
                 title: '按钮(Button)',
                 url: '/buttons',
@@ -45,12 +51,31 @@ export const menuItems = [
         ],
     },
     {
-        key: 'test1',
-        title: '测试菜单1',
+        key: 'organizations',
+        title: '组织架构',
         url: '',
         permission: '#',
-        icon: 'desktop',
-        children: [],
+        icon: 'team',
+        children: [
+            {
+                key: 'depts',
+                title: '部门',
+                url: '/organizations/depts',
+                permission: 'organizations-depts',
+            },
+            {
+                key: 'groups',
+                title: '组别',
+                url: '/organizations/groups',
+                permission: 'organizations-groups',
+            },
+            {
+                key: 'positions',
+                title: '职位',
+                url: '/organizations/positions',
+                permission: 'organizations-positions',
+            },
+        ],
     },
     {
         key: 'test2',

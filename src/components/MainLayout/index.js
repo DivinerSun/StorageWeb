@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import _ from 'lodash';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Affix } from 'antd';
 import ContentHeader from './ContentHeader';
 import MainContent from './MainContent';
 import { menuItems } from './menuItems';
@@ -27,7 +27,7 @@ class MainLayout extends React.Component {
                 return (
                     <Menu.Item key={_.get(item, 'key')}>
                         {_.get(item, 'icon') ? <Icon type={_.get(item, 'icon')} /> : null}
-                        <NavLink to={_.get(item, 'key')}>{_.get(item, 'title')}</NavLink>
+                        <NavLink to={'/admin' + _.get(item, 'url')}>{_.get(item, 'title')}</NavLink>
                     </Menu.Item>
                 );
             } else {
@@ -51,15 +51,17 @@ class MainLayout extends React.Component {
     render() {
         return (
             <Layout style={{ minHeight: '100vh' }}>
-                <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                    <a href={'/admin'} className={'logo'}>
-                        <img src={Logo} alt={'图标'} />
-                        <span className={'title'}>仓储管理系统</span>
-                    </a>
-                    <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        { this.renderMenu(menuItems) }
-                    </Menu>
-                </Sider>
+                <Affix offsetTop={0}>
+                    <Sider style={{height: '100vh'}} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+                        <a href={'/admin'} className={'logo'}>
+                            <img src={Logo} alt={'图标'} />
+                            <span className={'title'}>仓储管理系统</span>
+                        </a>
+                        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                            { this.renderMenu(menuItems) }
+                        </Menu>
+                    </Sider>
+                </Affix>
                 <Layout>
                     <ContentHeader />
                     <MainContent> { this.props.children } </MainContent>

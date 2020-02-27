@@ -1,8 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 
 
-const Depts = () => {
+const Depts = ({ deptState }) => {
+
+    console.warn('Dept State: ', deptState)
 
     return (
         <div>
@@ -12,4 +15,10 @@ const Depts = () => {
 }
 
 
-export default Depts
+const mapStateToProps = state => {
+    return {
+        deptState: state.depts
+    }
+}
+
+export default connect(mapStateToProps)(Depts)

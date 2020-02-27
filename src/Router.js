@@ -52,7 +52,7 @@ const Routers = ({
                                             <Switch>
                                                 <Route
                                                     path={'/admin/organizations/depts'}
-                                                    component={hasPermission('', Organizations.Depts)}
+                                                    component={Organizations.Depts}
                                                 />
                                                 <Route
                                                     path={'/admin/organizations/groups'}
@@ -60,7 +60,7 @@ const Routers = ({
                                                 />
                                                 <Route
                                                     path={'/admin/organizations/positions'}
-                                                    component={Organizations.Positions}
+                                                    component={hasPermission('',Organizations.Positions)}
                                                 />
                                             </Switch>
                                         )

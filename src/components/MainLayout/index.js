@@ -23,7 +23,7 @@ class MainLayout extends React.Component {
 
     renderMenu = items => {
         return _.map(items, item => {
-            if (!_.get(item, 'children')) {
+            if (!_.get(item, 'children') || _.get(item, 'children.length') <= 0) {
                 return (
                     <Menu.Item key={_.get(item, 'key')}>
                         {_.get(item, 'icon') ? <Icon type={_.get(item, 'icon')} /> : null}

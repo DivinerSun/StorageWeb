@@ -41,7 +41,7 @@ class MainLayout extends React.Component {
                             </span>
                         }
                     >
-                        { this.renderMenu(_.get(item, 'children')) }
+                        {this.renderMenu(_.get(item, 'children'))}
                     </SubMenu>
                 );
             }
@@ -51,20 +51,20 @@ class MainLayout extends React.Component {
     render() {
         return (
             <Layout style={{ minHeight: '100vh' }}>
-                <Affix offsetTop={0}>
-                    <Sider style={{height: '100vh'}} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
-                        <a href={'/admin'} className={'logo'}>
-                            <img src={Logo} alt={'图标'} />
-                            <span className={'title'}>仓储管理系统</span>
-                        </a>
-                        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                            { this.renderMenu(menuItems) }
-                        </Menu>
-                    </Sider>
-                </Affix>
-                <Layout>
-                    <ContentHeader />
-                    <MainContent> { this.props.children } </MainContent>
+                <Sider style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0 }} collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+                    <a href={'/admin'} className={'logo'}>
+                        <img src={Logo} alt={'图标'} />
+                        {this.state.collapsed ? null : <span className={'title'}>仓储管理系统</span>}
+                    </a>
+                    <Menu theme="dark" defaultSelectedKeys={['1']} mode={'vertical'}>
+                        {this.renderMenu(menuItems)}
+                    </Menu>
+                </Sider>
+                <Layout style={{ overflow: 'hidden', marginLeft: '200px' }}>
+                    <Affix offsetTop={-1}>
+                        <ContentHeader />
+                    </Affix>
+                    <MainContent> {this.props.children} </MainContent>
                     <Footer style={{ textAlign: 'center' }}>Storage Platform Web ©2020 Created by Diviner</Footer>
                 </Layout>
             </Layout>

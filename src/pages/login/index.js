@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Form, Input, Icon, Button, Alert } from 'antd'
+import { effectActionTypes } from '../../models/allEffectActionTypes'
 
 import './index.less'
 import avatarImg from '../../assets/avatar.png'
@@ -10,6 +12,7 @@ const FormItem = Form.Item
 
 const Login = ({
     form,
+    dispatch,
 }) => {
     const history = useHistory()
 
@@ -18,6 +21,7 @@ const Login = ({
     const handleSubmit = () => {
         form.validateFields((errors, values) => {
             if (!errors) {
+                dispatch({ type: effectActionTypes.DEPT_CREATE_REQUESTED })
                 console.warn('Login Info: ', values)
                 const { username, password } = values;
                 if (username === 'Diviner' && password === '123456') {
@@ -85,4 +89,4 @@ const Login = ({
 }
 
 
-export default Form.create()(Login)
+export default connect()(Form.create()(Login))

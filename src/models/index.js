@@ -1,18 +1,18 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { devToolsEnhancer } from 'redux-devtools-extension'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 import rootReducers from './root-reducer'
-// import mySaga from './sagas'
+import allEffects from './root-effect'
 
 
 const sagaMiddleware = createSagaMiddleware()
 
 const store = createStore(
     rootReducers,
-    devToolsEnhancer(applyMiddleware(sagaMiddleware))
+    composeWithDevTools(applyMiddleware(sagaMiddleware))
 )
 
-// sagaMiddleware.run(mySaga)
+sagaMiddleware.run(allEffects)
 
 export default store

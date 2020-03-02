@@ -1,14 +1,10 @@
-import { takeEvery } from 'redux-saga/effects'
-import { effectActionTypes } from './allEffectActionTypes'
+import { takeEvery } from "redux-saga/effects";
+import { effectActionTypes } from "./allEffectActionTypes";
 
-import {
-    createDeptRequest,
-} from './organizations/depts/effects'
-
+import { createDeptRequest } from "./organizations/depts/effects";
 
 function* allEffects() {
-    yield takeEvery(effectActionTypes.DEPT_CREATE_REQUESTED, createDeptRequest)
+    yield takeEvery(effectActionTypes.DEPT_CREATE_REQUESTED, createDeptRequest);
 }
 
-
-export default allEffects
+export default allEffects;

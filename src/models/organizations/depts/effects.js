@@ -1,6 +1,6 @@
-import { call, put } from 'redux-saga/effects'
-import { actionTypes } from './actionTypes'
-import { createDept } from '../../../services/organizations'
+import { call, put } from "redux-saga/effects";
+import { actionTypes } from "./actionTypes";
+import { createDept } from "../../../services/organizations";
 
 export function* createDeptRequest({ payload: dept }) {
     try {

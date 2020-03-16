@@ -18,6 +18,7 @@ import Icons from "./pages/BaseUI/icons";
 import Affixs from "./pages/BaseUI/affixs";
 
 import Organizations from "./pages/organizations";
+import Users from "./pages/users";
 
 const Routers = ({ currentUser }) => {
     const hasPermission = (permission, component) => {
@@ -100,6 +101,12 @@ const Routers = ({ currentUser }) => {
                                                             "",
                                                             Organizations.Positions
                                                         )}
+                                                    />
+                                                    <Route
+                                                        path={
+                                                            "/admin/organizations/users"
+                                                        }
+                                                        component={Users}
                                                     />
                                                 </Switch>
                                             );

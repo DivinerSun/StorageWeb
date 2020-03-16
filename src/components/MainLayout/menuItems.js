@@ -74,6 +74,12 @@ export const menuItems = [
                 title: "职位",
                 url: "/organizations/positions",
                 permission: "organizations-positions"
+            },
+            {
+                key: "users",
+                title: "用户",
+                url: "/organizations/users",
+                permission: "organizations-users"
             }
         ]
     },
